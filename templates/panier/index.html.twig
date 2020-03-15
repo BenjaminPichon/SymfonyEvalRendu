@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="produits">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">{{"Nom" |trans}}</th>
+                        <th scope="col">{{"Quantité" |trans}}</th>
+                        <th scope="col">{{"Montant" |trans}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for panier in paniers %}
+                        <tr>
+                            <td>{{panier.produit.nom}}</td>
+                            <td>{{panier.quantite}}</td>
+                            <td>{{panier.quantite * panier.produit.prix}}</td>
+                            <td><a href="{{path('removePanier', {id: panier.id})}}" class="btn btn-danger">Supprimer</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Quantité Total du Panier</h2> : <strong>{{quantite}}</strong>
+            <h2>Prix Total du Panier</h2> : <strong>{{montant}}</strong>
+        </div>
+{% endblock %}
