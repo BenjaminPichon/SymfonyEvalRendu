@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 class PanierController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/panier", name="index")
      */
     public function index()
     {
